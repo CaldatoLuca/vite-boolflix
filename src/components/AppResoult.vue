@@ -1,11 +1,17 @@
 <script>
 import { store } from "../store";
+import Film from "./Film.vue";
+import Tv from "./Tv.vue";
 
 export default {
   data() {
     return {
       store,
     };
+  },
+  components: {
+    Film,
+    Tv,
   },
   methods: {
     getFlag(code) {
@@ -25,49 +31,6 @@ export default {
 </script>
 
 <template>
-  <div class="container">
-    <div>
-      <h2>Titolo</h2>
-      <ul>
-        <li v-for="title in store.films">
-          {{ title.title }}
-        </li>
-      </ul>
-    </div>
-    <div>
-      <h2>Titolo originale</h2>
-      <ul>
-        <li v-for="originalTitle in store.films">
-          {{ originalTitle.original_title }}
-        </li>
-      </ul>
-    </div>
-    <div>
-      <h2>Lingua</h2>
-      <ul>
-        <li v-for="language in store.films">
-          <span class="fi" :class="getFlag(language.original_language)"></span>
-          <span v-if="language.original_language === null"></span>
-          <span v-if="language.original_language === ''"></span>
-        </li>
-      </ul>
-    </div>
-    <div>
-      <h2>Voto</h2>
-      <ul>
-        <li v-for="vote in store.films">
-          {{ vote.vote_average }}
-        </li>
-      </ul>
-    </div>
-  </div>
+  <Film />
+  <Tv />
 </template>
-
-<style>
-.container {
-  display: flex;
-}
-h2 {
-  text-align: center;
-}
-</style>

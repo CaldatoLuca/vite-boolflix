@@ -17,24 +17,39 @@ export default {
     AppResoult,
   },
   methods: {
-    searchFilm() {
-      axios
-        .get(this.store.apiConfig.apiUrl, {
-          params: {
-            api_key: this.store.apiConfig.apiKey,
-            query: this.store.filmSearched,
-            language: this.store.language,
-          },
+    search(apiUrl1, apiUrl2) {
+      const request1 = axios.get(apiUrl1, {
+        params: {
+          api_key: this.store.apiConfig.apiKey,
+          query: this.store.searched,
+          language: this.store.language,
+        },
+      });
+
+      const request2 = axios.get(apiUrl2, {
+        params: {
+          api_key: this.store.apiConfig.apiKey,
+          query: this.store.searched,
+          language: this.store.language,
+        },
+      });
+
+      Promise.all([request1, request2])
+        .then(([apiData1, apiData2]) => {
+          this.store.films = apiData1.data.results;
+          this.store.totalResults = apiData1.data.total_results;
+
+          this.store.tvs = apiData2.data.results;
+          this.store.totalResults = apiData2.data.total_results;
         })
-        .then((apiData) => {
-          this.store.films = apiData.data.results;
-          this.store.totalResoults = apiData.data.total_results;
-        })
-        .catch((error) => {
-          this.error = error;
+        .catch((errors) => {
+          this.error = errors;
           this.store.films = [];
+          this.store.tvs = [];
+        })
+        .finally(() => {
+          this.store.searched = "";
         });
-      this.store.filmSearched = "";
     },
   },
 };
@@ -42,7 +57,9 @@ export default {
 
 <template>
   <h1>Boolflix</h1>
-  <AppSearch @buttonSearch="searchFilm" />
+  <AppSearch
+    @buttonSearch="search(store.apiConfig.apiFilmUrl, store.apiConfig.apiTvUrl)"
+  />
   <AppResoult v-if="store.films.length !== 0" />
   <div v-else-if="this.store.totalResoults === 0">Nessun elemento trovato</div>
   <div v-if="this.error !== ''">{{ this.error }}</div>
