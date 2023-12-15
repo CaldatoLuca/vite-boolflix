@@ -33,6 +33,5 @@ export default {
   <h1>Boolflix</h1>
   <AppSearch @buttonSearch="searchFilm" />
   <AppResoult v-if="store.films.length !== 0" />
-
   <div v-else>Nessun elemnto trovato</div>
 </template>
