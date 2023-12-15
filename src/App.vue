@@ -9,6 +9,7 @@ export default {
     return {
       store,
       error: "",
+      welcomeHome: false,
     };
   },
 
@@ -50,6 +51,7 @@ export default {
         .finally(() => {
           this.store.searched = "";
         });
+      this.welcomeHome = true;
     },
   },
 };
@@ -60,7 +62,8 @@ export default {
   <AppSearch
     @buttonSearch="search(store.apiConfig.apiFilmUrl, store.apiConfig.apiTvUrl)"
   />
-  <AppResoult />
+  <AppResoult v-if="this.welcomeHome" />
+  <div v-else>welcome</div>
 
   <div v-if="this.error !== ''">{{ this.error }}</div>
 </template>
