@@ -7,6 +7,20 @@ export default {
       store,
     };
   },
+  methods: {
+    getFlag(code) {
+      if (code === "en") {
+        code = "gb";
+      }
+      if (code === "zh") {
+        code = "cn";
+      }
+      if (code === "ja") {
+        code = "jp";
+      }
+      return ` fi-${code}`;
+    },
+  },
 };
 </script>
 
@@ -32,7 +46,9 @@ export default {
       <h2>Lingua</h2>
       <ul>
         <li v-for="language in store.films">
-          {{ language.original_language }}
+          <span class="fi" :class="getFlag(language.original_language)"></span>
+          <span v-if="language.original_language === null"></span>
+          <span v-if="language.original_language === ''"></span>
         </li>
       </ul>
     </div>

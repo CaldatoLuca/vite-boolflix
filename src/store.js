@@ -5,7 +5,7 @@ export const store = reactive({
   films: [],
   totalResoults: 1,
   filmSearched: "",
-  language: "it-IT",
+  language: "en-US",
   apiConfig: {
     apiUrl: "https://api.themoviedb.org/3/search/movie",
     apiKey: "21158f75b2a3edbfcfc831b6fd1520bf",
