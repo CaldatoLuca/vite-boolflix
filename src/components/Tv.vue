@@ -20,12 +20,20 @@ export default {
       }
       return ` fi-${code}`;
     },
+    getImage(posterPath) {
+      return this.store.pathImg + posterPath;
+    },
   },
 };
 </script>
 
 <template>
   <h1>Tv Series</h1>
+  <div class="images">
+    <div v-for="img in store.tvs">
+      <img :src="getImage(img.poster_path)" :alt="img.title" />
+    </div>
+  </div>
   <div class="container" v-if="store.tvTotalResults >= 1">
     <div>
       <h2>Titolo</h2>
@@ -65,11 +73,4 @@ export default {
   <div v-else-if="store.tvTotalResults === 0">Nessuna serie tv trovata</div>
 </template>
 
-<style>
-.container {
-  display: flex;
-}
-h2 {
-  text-align: center;
-}
-</style>
+<style></style>

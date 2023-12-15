@@ -1,10 +1,10 @@
 import { reactive } from "vue";
 
 export const store = reactive({
-  //array di films
+  //array di films e total result
   films: [],
   filmTotalResults: 0.5,
-  //array di serie tv
+  //array di serie tv e total result
   tvs: [],
   tvTotalResults: 0.5,
 
@@ -12,6 +12,8 @@ export const store = reactive({
   searched: "",
   //lingue visualizzazione api
   language: "en-US",
+  //path img
+  pathImg: "https://image.tmdb.org/t/p/w342",
 
   //gestione api
   apiConfig: {
