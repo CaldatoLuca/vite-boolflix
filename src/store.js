@@ -3,13 +3,16 @@ import { reactive } from "vue";
 export const store = reactive({
   //array di films
   films: [],
+  filmTotalResults: 0.5,
   //array di serie tv
   tvs: [],
+  tvTotalResults: 0.5,
+
   //ricerca dell' utente
   searched: "",
   //lingue visualizzazione api
   language: "en-US",
-  totalResults: 1,
+
   //gestione api
   apiConfig: {
     apiFilmUrl: "https://api.themoviedb.org/3/search/movie",

@@ -26,8 +26,7 @@ export default {
 
 <template>
   <h1>Tv Series</h1>
-
-  <div class="container">
+  <div class="container" v-if="store.tvTotalResults >= 1">
     <div>
       <h2>Titolo</h2>
       <ul>
@@ -63,6 +62,7 @@ export default {
       </ul>
     </div>
   </div>
+  <div v-else-if="store.tvTotalResults === 0">Nessuna serie tv trovata</div>
 </template>
 
 <style>

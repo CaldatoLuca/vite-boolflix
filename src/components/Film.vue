@@ -26,7 +26,7 @@ export default {
 
 <template>
   <h1>Movies</h1>
-  <div class="container">
+  <div class="container" v-if="store.filmTotalResults >= 1">
     <div>
       <h2>Titolo</h2>
       <ul>
@@ -62,6 +62,7 @@ export default {
       </ul>
     </div>
   </div>
+  <div v-else-if="store.filmTotalResults === 0">Nessun film trovato</div>
 </template>
 
 <style>

@@ -37,10 +37,10 @@ export default {
       Promise.all([request1, request2])
         .then(([apiData1, apiData2]) => {
           this.store.films = apiData1.data.results;
-          this.store.totalResults = apiData1.data.total_results;
+          this.store.filmTotalResults = apiData1.data.total_results;
 
           this.store.tvs = apiData2.data.results;
-          this.store.totalResults = apiData2.data.total_results;
+          this.store.tvTotalResults = apiData2.data.total_results;
         })
         .catch((errors) => {
           this.error = errors;
@@ -60,7 +60,7 @@ export default {
   <AppSearch
     @buttonSearch="search(store.apiConfig.apiFilmUrl, store.apiConfig.apiTvUrl)"
   />
-  <AppResoult v-if="store.films.length !== 0" />
-  <div v-else-if="this.store.totalResoults === 0">Nessun elemento trovato</div>
+  <AppResoult />
+
   <div v-if="this.error !== ''">{{ this.error }}</div>
 </template>
