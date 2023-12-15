@@ -11,7 +11,7 @@ export const store = reactive({
   //ricerca dell' utente
   searched: "",
   //lingue visualizzazione api
-  language: "en-US",
+  language: "",
   //path img
   pathImg: "https://image.tmdb.org/t/p/w342",
 

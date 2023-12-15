@@ -7,31 +7,15 @@ export default {
       store,
     };
   },
-  methods: {
-    getFlag(code) {
-      if (code === "en") {
-        code = "gb";
-      }
-      if (code === "zh") {
-        code = "cn";
-      }
-      if (code === "ja") {
-        code = "jp";
-      }
-      return ` fi-${code}`;
-    },
-    getImage(posterPath) {
-      return this.store.pathImg + posterPath;
-    },
-  },
+  props: ["filmFlags", "filmImages"],
 };
 </script>
 
 <template>
   <h1>Movies</h1>
   <div class="images">
-    <div v-for="img in store.films">
-      <img :src="getImage(img.poster_path)" :alt="img.title" />
+    <div v-for="(img, i) in filmImages">
+      <img :src="img" :alt="`Immagine ${i + 1}`" />
     </div>
   </div>
   <div class="container" v-if="store.filmTotalResults >= 1">
@@ -54,8 +38,8 @@ export default {
     <div>
       <h2>Lingua</h2>
       <ul>
-        <li v-for="language in store.films">
-          <span class="fi" :class="getFlag(language.original_language)"></span>
+        <li v-for="language in filmFlags">
+          <span class="fi" :class="language"></span>
           <span v-if="language.original_language === null"></span>
           <span v-if="language.original_language === ''"></span>
         </li>
