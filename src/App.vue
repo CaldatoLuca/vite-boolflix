@@ -8,6 +8,7 @@ export default {
   data() {
     return {
       store,
+      error: "",
     };
   },
 
@@ -17,12 +18,22 @@ export default {
   },
   methods: {
     searchFilm() {
-      this.store.apiUrl =
-        "https://api.themoviedb.org/3/search/movie?api_key=21158f75b2a3edbfcfc831b6fd1520bf&query=";
-      this.store.apiUrl += this.store.filmSearched;
-      axios.get(this.store.apiUrl).then((apiData) => {
-        this.store.films = apiData.data.results;
-      });
+      axios
+        .get(this.store.apiConfig.apiUrl, {
+          params: {
+            api_key: this.store.apiConfig.apiKey,
+            query: this.store.filmSearched,
+            language: this.store.language,
+          },
+        })
+        .then((apiData) => {
+          this.store.films = apiData.data.results;
+          this.store.totalResoults = apiData.data.total_results;
+        })
+        .catch((error) => {
+          this.error = error;
+          this.store.films = [];
+        });
       this.store.filmSearched = "";
     },
   },
@@ -33,5 +44,6 @@ export default {
   <h1>Boolflix</h1>
   <AppSearch @buttonSearch="searchFilm" />
   <AppResoult v-if="store.films.length !== 0" />
-  <div v-else>Nessun elemnto trovato</div>
+  <div v-else-if="this.store.totalResoults === 0">Nessun elemento trovato</div>
+  <div v-if="this.error !== ''">{{ this.error }}</div>
 </template>
