@@ -7,7 +7,7 @@ export default {
       store,
     };
   },
-  props: ["tvsFlags", "tvsImages"],
+  props: ["tvsFlags", "tvsImages", "tvsVotes"],
 
   methods: {
     getImage(posterPath) {
@@ -54,8 +54,8 @@ export default {
     <div>
       <h2>Voto</h2>
       <ul>
-        <li v-for="vote in store.tvs">
-          {{ vote.vote_average }}
+        <li v-for="vote in tvsVotes">
+          {{ vote }}
         </li>
       </ul>
     </div>

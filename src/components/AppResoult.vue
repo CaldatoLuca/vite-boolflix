@@ -9,7 +9,7 @@ export default {
       store,
     };
   },
-  props: ["lang"],
+
   components: {
     Film,
     Tv,
@@ -38,6 +38,13 @@ export default {
       });
       return images;
     },
+    getVote(array) {
+      const votes = [];
+      array.forEach((element) => {
+        votes.push(Math.round(element.vote_average / 2));
+      });
+      return votes;
+    },
   },
 };
 </script>
@@ -47,10 +54,12 @@ export default {
     <Film
       :filmFlags="getFlag(this.store.films)"
       :filmImages="getImage(this.store.films)"
+      :filmVotes="getVote(this.store.films)"
     />
     <Tv
       :tvsFlags="getFlag(this.store.tvs)"
       :tvsImages="getImage(this.store.tvs)"
+      :tvsVotes="getVote(this.store.tvs)"
     />
   </div>
   <div v-else>Nussun risultato trovato</div>

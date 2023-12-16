@@ -7,7 +7,7 @@ export default {
       store,
     };
   },
-  props: ["filmFlags", "filmImages"],
+  props: ["filmFlags", "filmImages", "filmVotes"],
 };
 </script>
 
@@ -48,8 +48,8 @@ export default {
     <div>
       <h2>Voto</h2>
       <ul>
-        <li v-for="vote in store.films">
-          {{ vote.vote_average }}
+        <li v-for="vote in filmVotes">
+          {{ vote }}
         </li>
       </ul>
     </div>
