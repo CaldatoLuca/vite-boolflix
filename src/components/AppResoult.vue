@@ -43,12 +43,15 @@ export default {
 </script>
 
 <template>
-  <Film
-    :filmFlags="getFlag(this.store.films)"
-    :filmImages="getImage(this.store.films)"
-  />
-  <Tv
-    :tvsFlags="getFlag(this.store.tvs)"
-    :tvsImages="getImage(this.store.tvs)"
-  />
+  <div v-if="this.store.films.length > 0 || this.store.tvs.length > 0">
+    <Film
+      :filmFlags="getFlag(this.store.films)"
+      :filmImages="getImage(this.store.films)"
+    />
+    <Tv
+      :tvsFlags="getFlag(this.store.tvs)"
+      :tvsImages="getImage(this.store.tvs)"
+    />
+  </div>
+  <div v-else>Nussun risultato trovato</div>
 </template>
