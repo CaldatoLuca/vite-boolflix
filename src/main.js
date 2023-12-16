@@ -2,7 +2,7 @@ import { createApp } from "vue";
 import App from "./App.vue";
 
 //! importazione main scss
-import "./assets/css/style.css";
+import "./assets/scss/main.scss";
 
 //! importazione file convertitore ISO in imf flags
 import "/node_modules/flag-icons/css/flag-icons.min.css";
