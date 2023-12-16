@@ -15,6 +15,9 @@ export const store = reactive({
   //path img
   pathImg: "https://image.tmdb.org/t/p/w342",
 
+  //voto massimo (5)
+  maxVote: 5,
+
   //gestione api
   apiConfig: {
     apiFilmUrl: "https://api.themoviedb.org/3/search/movie",

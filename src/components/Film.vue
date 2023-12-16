@@ -48,8 +48,11 @@ export default {
     <div>
       <h2>Voto</h2>
       <ul>
-        <li v-for="vote in filmVotes">
-          {{ vote }}
+        <li v-for="vote in filmVotes" class="star-vote">
+          <div v-for="n in this.store.maxVote">
+            <font-awesome-icon v-if="vote >= n" icon="fa-solid fa-star" />
+            <font-awesome-icon v-else icon="fa-regular fa-star" />
+          </div>
         </li>
       </ul>
     </div>
@@ -57,4 +60,8 @@ export default {
   <div v-else-if="store.filmTotalResults === 0">Nessun film trovato</div>
 </template>
 
-<style></style>
+<style>
+.star-vote {
+  display: flex;
+}
+</style>
