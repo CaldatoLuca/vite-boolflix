@@ -1,12 +1,8 @@
 @use "./partials/reset.scss";
 @use "./partials/utility.scss";
+@use "./partials/common.scss";
 @use "./partials/variables.scss" as *;
 
-body {
-  background-color: $blue-200;
-
-  color: white;
-}
 .images {
   display: flex;
   flex-wrap: wrap;

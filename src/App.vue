@@ -1,6 +1,7 @@
 <script>
 import AppHeader from "./components/AppHeader.vue";
 import AppResoult from "./components/AppResoult.vue";
+import AppWelcomePage from "./AppWelcomePage.vue";
 import axios from "axios";
 import { store } from "./store";
 
@@ -16,6 +17,7 @@ export default {
   components: {
     AppHeader,
     AppResoult,
+    AppWelcomePage,
   },
   methods: {
     search(apiUrl1, apiUrl2) {
@@ -58,11 +60,22 @@ export default {
 </script>
 
 <template>
-  <AppHeader
-    @buttonSearch="search(store.apiConfig.apiFilmUrl, store.apiConfig.apiTvUrl)"
-  />
-  <AppResoult v-if="this.welcomeHome" />
-  <div v-else>welcome</div>
+  <div class="container flex">
+    <AppHeader
+      @buttonSearch="
+        search(store.apiConfig.apiFilmUrl, store.apiConfig.apiTvUrl)
+      "
+    />
+    <AppResoult v-if="this.welcomeHome" />
+    <AppWelcomePage v-else />
+  </div>
 
   <div v-if="this.error !== ''">{{ this.error }}</div>
 </template>
+
+<style scoped lang="scss">
+.container {
+  flex-direction: column;
+  height: 100vh;
+}
+</style>

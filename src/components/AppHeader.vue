@@ -47,7 +47,6 @@ header {
     flex-grow: 1;
     justify-content: flex-end;
     #search {
-      outline: none;
       width: 30%;
       border-bottom-left-radius: 20px;
       border-top-left-radius: 20px;
