@@ -16,12 +16,22 @@ export default {
 </script>
 
 <template>
-  <header class="flex justify-between align-center">
+  <header class="flex align-center">
     <AppLogo />
-    <form @submit.prevent="$emit('buttonSearch')">
-      <label for="search">Cerca qui i tuoi film </label>
-      <input v-model="store.searched" type="text" id="search" />
-      <button>invio</button>
+    <form @submit.prevent="$emit('buttonSearch')" class="flex">
+      <label for="search" class="none">Cerca qui i tuoi film </label>
+      <input
+        v-model="store.searched"
+        type="text"
+        id="search"
+        placeholder="Search..."
+      />
+      <button>
+        <font-awesome-icon
+          icon="fa-solid fa-magnifying-glass"
+          id="icon-search"
+        />
+      </button>
     </form>
   </header>
 </template>
@@ -33,5 +43,28 @@ header {
   padding: 1.875rem 2.5rem;
   background-color: $black;
   box-shadow: 0px 10px 13px -7px black;
+  form {
+    flex-grow: 1;
+    justify-content: flex-end;
+    #search {
+      outline: none;
+      width: 30%;
+      border-bottom-left-radius: 20px;
+      border-top-left-radius: 20px;
+      border: none;
+      padding: 10px;
+    }
+    button {
+      padding: 10px;
+      border-bottom-right-radius: 20px;
+      border-top-right-radius: 20px;
+      border: none;
+      cursor: pointer;
+      background-color: white;
+      #icon-search {
+        font-size: 1.25rem;
+      }
+    }
+  }
 }
 </style>

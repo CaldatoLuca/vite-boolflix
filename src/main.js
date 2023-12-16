@@ -19,7 +19,8 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 //importazione icone
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { faStar as faStarEmpty } from "@fortawesome/free-regular-svg-icons";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 //aggiunta icone alla libreria
-library.add(faStar, faStarEmpty);
+library.add(faStar, faStarEmpty, faMagnifyingGlass);
 
 createApp(App).component("font-awesome-icon", FontAwesomeIcon).mount("#app");
