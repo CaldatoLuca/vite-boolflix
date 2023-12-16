@@ -1,5 +1,5 @@
 <script>
-import AppSearch from "./components/AppSearch.vue";
+import AppHeader from "./components/AppHeader.vue";
 import AppResoult from "./components/AppResoult.vue";
 import axios from "axios";
 import { store } from "./store";
@@ -14,7 +14,7 @@ export default {
   },
 
   components: {
-    AppSearch,
+    AppHeader,
     AppResoult,
   },
   methods: {
@@ -58,8 +58,7 @@ export default {
 </script>
 
 <template>
-  <h1>Boolflix</h1>
-  <AppSearch
+  <AppHeader
     @buttonSearch="search(store.apiConfig.apiFilmUrl, store.apiConfig.apiTvUrl)"
   />
   <AppResoult v-if="this.welcomeHome" />

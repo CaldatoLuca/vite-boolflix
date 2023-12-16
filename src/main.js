@@ -4,6 +4,10 @@ import App from "./App.vue";
 //! importazione main scss
 import "./assets/scss/main.scss";
 
+//!bebas-neue font (title)
+import "@fontsource/bebas-neue"; // Defaults to weight 400
+import "@fontsource/bebas-neue/400.css"; // Specify weight
+
 //! importazione file convertitore ISO in imf flags
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 
