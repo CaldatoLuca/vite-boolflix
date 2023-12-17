@@ -3,7 +3,7 @@ export default {};
 </script>
 
 <template>
-  <div class="title flex align-center">
+  <div class="title flex align-center justify-center">
     <h1 id="logo1">B</h1>
     <h1 id="logo2">boolflix</h1>
   </div>
