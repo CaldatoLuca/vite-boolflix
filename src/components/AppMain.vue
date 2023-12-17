@@ -50,7 +50,7 @@ export default {
 </script>
 
 <template>
-  <div v-if="this.store.films.length > 0 || this.store.tvs.length > 0">
+  <main v-if="this.store.films.length > 0 || this.store.tvs.length > 0">
     <Film
       :filmFlags="getFlag(this.store.films)"
       :filmImages="getImage(this.store.films)"
@@ -61,6 +61,15 @@ export default {
       :tvsImages="getImage(this.store.tvs)"
       :tvsVotes="getVote(this.store.tvs)"
     />
-  </div>
+  </main>
   <div v-else>Nussun risultato trovato</div>
 </template>
+
+<style scoped lang="scss">
+@use "../assets/scss/partials/variables" as *;
+main {
+  padding: 3.125rem;
+  background-color: $blue-200;
+  color: white;
+}
+</style>

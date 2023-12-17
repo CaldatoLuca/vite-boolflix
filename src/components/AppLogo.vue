@@ -12,7 +12,6 @@ export default {};
 <style scoped lang="scss">
 @use "../assets/scss/partials/variables" as *;
 .title {
-  font-family: "Bebas Neue", sans-serif;
   #logo1 {
     color: $beige;
     font-size: 4.375rem;

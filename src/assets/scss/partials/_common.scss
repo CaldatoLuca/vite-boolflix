@@ -1,6 +1,20 @@
 @use "variables.scss" as *;
 
 body {
-  background-color: $blue-200;
-  color: white;
+  font-family: "Bebas Neue", sans-serif;
+}
+.images {
+  flex-wrap: wrap;
+  margin: 0 -10px;
+  .img-container {
+    width: calc(100% / 6 - 20px);
+    margin: 10px;
+
+    img {
+      height: 400px;
+    }
+  }
+}
+.star-vote {
+  display: flex;
 }

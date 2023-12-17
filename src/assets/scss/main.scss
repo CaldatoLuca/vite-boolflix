@@ -2,20 +2,3 @@
 @use "./partials/utility.scss";
 @use "./partials/common.scss";
 @use "./partials/variables.scss" as *;
-
-.images {
-  display: flex;
-  flex-wrap: wrap;
-  img {
-    display: block;
-    width: 100px;
-    height: 100px;
-    object-fit: contain;
-  }
-}
-.container {
-  display: flex;
-}
-h2 {
-  text-align: center;
-}
