@@ -5,6 +5,8 @@ export default {
   data() {
     return {
       store,
+      cardClass: "none",
+      imgClass: "block",
     };
   },
   props: ["filmFlags", "filmImages", "filmVotes"],
@@ -17,6 +19,7 @@ export default {
     <div v-if="store.filmTotalResults >= 1" class="images flex">
       <div v-for="(img, i) in filmImages" class="img-container">
         <img :src="img" :alt="`Immagine ${i + 1}`" />
+        <div class="card">ciao</div>
       </div>
     </div>
   </section>
