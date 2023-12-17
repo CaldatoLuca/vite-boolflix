@@ -25,7 +25,7 @@ export default {
         params: {
           api_key: this.store.apiConfig.apiKey,
           query: this.store.searched,
-          language: this.store.language,
+          language: this.store.apiConfig.language,
         },
       });
 

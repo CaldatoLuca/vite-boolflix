@@ -23,5 +23,6 @@ export const store = reactive({
     apiFilmUrl: "https://api.themoviedb.org/3/search/movie",
     apiTvUrl: "https://api.themoviedb.org/3/search/tv",
     apiKey: "21158f75b2a3edbfcfc831b6fd1520bf",
+    apiLanguage: "language=it-IT",
   },
 });

@@ -1,24 +1,43 @@
 @use "variables.scss" as *;
-
+//!body
 body {
   font-family: "Bebas Neue", sans-serif;
+  background-color: $blue-200;
+  color: white;
 }
+//!griglia immagini
 .images {
   flex-wrap: wrap;
   margin: 0 -10px;
   .img-container {
     width: calc(100% / 6 - 20px);
     margin: 10px;
+    &:hover img {
+      display: none;
+    }
+    &:hover .card {
+      display: block;
+    }
     img {
       height: 400px;
     }
     .card {
       display: none;
-      height: 400px;
-      background-color: rebeccapurple;
+      padding: 20px;
+      background-color: $black;
+      border: 1px solid $beige;
+      h3 {
+        color: $beige;
+        margin-right: 10px;
+      }
+      .star-vote {
+        display: flex;
+      }
     }
   }
 }
-.star-vote {
-  display: flex;
+
+//!typho
+h2 {
+  font-size: 2.5rem;
 }

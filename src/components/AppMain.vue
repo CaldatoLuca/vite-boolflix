@@ -69,7 +69,7 @@ export default {
 @use "../assets/scss/partials/variables" as *;
 main {
   padding: 3.125rem;
-  background-color: $blue-200;
+
   color: white;
 }
 </style>
