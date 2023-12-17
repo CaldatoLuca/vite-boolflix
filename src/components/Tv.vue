@@ -62,7 +62,7 @@ export default {
       </div>
     </div>
     <!-- *se non ci sono serie tv -->
-    <div v-else-if="store.filmTotalResults === 0">Nessun film trovato</div>
+    <div v-else-if="store.tvTotalResults === 0">Nessua Serie TV trovata</div>
   </section>
 </template>
 
