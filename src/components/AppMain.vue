@@ -27,6 +27,9 @@ export default {
         if (element.original_language === "ja") {
           element.original_language = "jp";
         }
+        if (element.original_language === "cs") {
+          element.original_language = "cz";
+        }
         flags.push(` fi-${element.original_language}`);
       });
       return flags;

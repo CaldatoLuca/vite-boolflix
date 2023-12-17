@@ -5,11 +5,22 @@ export default {
   data() {
     return {
       store,
-      cardClass: "none",
-      imgClass: "block",
+      isOpen: "h-400",
     };
   },
   props: ["filmFlags", "filmImages", "filmVotes"],
+  methods: {
+    showCard() {
+      return this.isOpen;
+    },
+    openCard() {
+      if (this.isOpen === "h-400") {
+        this.isOpen = "h-auto";
+      } else if (this.isOpen === "h-auto") {
+        this.isOpen = "h-400";
+      }
+    },
+  },
 };
 </script>
 
@@ -24,7 +35,12 @@ export default {
         <img :src="img" :alt="`Immagine ${i + 1}`" />
 
         <!-- card on hover -->
-        <div class="card">
+        <div class="card" :class="showCard()">
+          <!-- bottone -->
+          <button class="btn" @click="openCard">
+            <font-awesome-icon icon="fa-solid fa-plus" />
+          </button>
+
           <!-- titolo -->
           <h3>Titolo</h3>
           <div>{{ store.films[i].title }}</div>
@@ -35,7 +51,7 @@ export default {
 
           <!-- voto -->
           <h3>Voto</h3>
-          <div class="star-vote">
+          <div class="flex">
             <div v-for="n in this.store.maxVote">
               <font-awesome-icon
                 v-if="filmVotes[i] >= n"
@@ -46,13 +62,14 @@ export default {
           </div>
 
           <!-- lingua -->
-          <div class="flex">
+          <div>
             <h3>Lingua</h3>
             <span class="fi" :class="filmFlags[i]"></span>
           </div>
 
           <!-- overview -->
           <h3>Overwiev</h3>
+
           <div>{{ store.films[i].overview }}</div>
         </div>
       </div>

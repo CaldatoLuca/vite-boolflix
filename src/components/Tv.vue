@@ -5,13 +5,20 @@ export default {
   data() {
     return {
       store,
+      isOpen: "h-400",
     };
   },
   props: ["tvsFlags", "tvsImages", "tvsVotes"],
-
   methods: {
-    getImage(posterPath) {
-      return this.store.pathImg + posterPath;
+    showCard() {
+      return this.isOpen;
+    },
+    openCard() {
+      if (this.isOpen === "h-400") {
+        this.isOpen = "h-auto";
+      } else if (this.isOpen === "h-auto") {
+        this.isOpen = "h-400";
+      }
     },
   },
 };
@@ -28,7 +35,12 @@ export default {
         <img :src="img" :alt="`Immagine ${i + 1}`" />
 
         <!-- card on hover -->
-        <div class="card">
+        <div class="card" :class="showCard()">
+          <!-- bottone -->
+          <button class="btn" @click="openCard">
+            <font-awesome-icon icon="fa-solid fa-plus" />
+          </button>
+
           <!-- titolo -->
           <h3>Titolo</h3>
           <div>{{ store.tvs[i].name }}</div>
@@ -39,7 +51,7 @@ export default {
 
           <!-- voto -->
           <h3>Voto</h3>
-          <div class="star-vote">
+          <div class="flex">
             <div v-for="n in this.store.maxVote">
               <font-awesome-icon
                 v-if="tvsVotes[i] >= n"
@@ -50,7 +62,7 @@ export default {
           </div>
 
           <!-- lingua -->
-          <div class="flex">
+          <div>
             <h3>Lingua</h3>
             <span class="fi" :class="tvsFlags[i]"></span>
           </div>
