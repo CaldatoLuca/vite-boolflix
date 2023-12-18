@@ -4,6 +4,14 @@ Benvenuto su Boolflix, un progetto didattico con lo scopo di copiare Netflix e l
 
 ## Demo
 
+
+
+https://github.com/CaldatoLuca/vite-boolflix/assets/144032332/7a4bb882-c777-4d39-817c-9819110453c5
+
+
+
+
+
 ## Costruito con
 
 - [Vite](https://vitejs.dev)
