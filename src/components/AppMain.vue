@@ -72,7 +72,6 @@ export default {
 @use "../assets/scss/partials/variables" as *;
 main {
   padding: 3.125rem;
-
   color: white;
 }
 </style>
