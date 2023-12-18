@@ -74,3 +74,7 @@ TMDB permette di ottenere i codici relativi ai vari generi dei Film o Serie TV.
 Per ottenere questo risultato si potrebbe implementare una select che ottiene come value i codici e come contenuto html il nome del genere relativo al codice. Il tutto effettuando una chiamata a (https://api.themoviedb.org/3/genre/movie/list?api_key="***").
 
 Si potrebbe poi filtrare l' array di film e serie tv perottenere solo gli elementi che nei loro generi includono il value della select selezionata.
+
+### Responsività verso il mobile
+
+Rendere la barra di ricerca una semplice icona e disporre sempre meno card su una stessa riga
