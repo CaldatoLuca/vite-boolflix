@@ -53,8 +53,24 @@ export default {
         .finally(() => {
           this.store.searched = "";
         });
+
       this.welcomeHome = true;
     },
+  },
+  created() {
+    const request = axios.get(store.apiConfig.apiGenre, {
+      params: {
+        api_key: this.store.apiConfig.apiKey,
+      },
+    });
+    Promise.all([request])
+      .then(([apiData]) => {
+        this.store.genres = apiData.data.genres;
+      })
+      .catch((errors) => {
+        this.error = errors;
+        this.store.genres = [];
+      });
   },
 };
 </script>
