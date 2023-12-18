@@ -47,6 +47,7 @@ export default {
         })
         .catch((errors) => {
           this.error = errors;
+          alert(errors);
           this.store.films = [];
           this.store.tvs = [];
         })
@@ -56,21 +57,6 @@ export default {
 
       this.welcomeHome = true;
     },
-  },
-  created() {
-    const request = axios.get(store.apiConfig.apiGenre, {
-      params: {
-        api_key: this.store.apiConfig.apiKey,
-      },
-    });
-    Promise.all([request])
-      .then(([apiData]) => {
-        this.store.genres = apiData.data.genres;
-      })
-      .catch((errors) => {
-        this.error = errors;
-        this.store.genres = [];
-      });
   },
 };
 </script>
@@ -84,5 +70,3 @@ export default {
 
   <div v-if="this.error !== ''">{{ this.error }}</div>
 </template>
-
-<style scoped lang="scss"></style>

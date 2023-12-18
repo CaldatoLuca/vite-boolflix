@@ -14,12 +14,12 @@ export default {};
 .title {
   #logo1 {
     color: $beige;
-    font-size: 4.375rem;
+    font-size: 5rem;
     margin-right: 1rem;
   }
   #logo2 {
     color: $blue-100;
-    font-size: 2.8125rem;
+    font-size: 3.4375rem;
   }
 }
 </style>

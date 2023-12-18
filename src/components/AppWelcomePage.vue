@@ -24,13 +24,11 @@ export default {
 .welcome-page {
   flex-grow: 1;
   gap: 50px;
-
+  height: 85vh;
   .welcome-text {
     text-align: center;
     font-family: "Bebas Neue", sans-serif;
-
     font-size: 1.5625rem;
-
     .slogan {
       font-size: 3.125rem;
       margin-bottom: 1.25rem;

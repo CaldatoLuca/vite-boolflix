@@ -17,20 +17,9 @@ export default {
 
 <template>
   <header class="flex align-center">
+    <!-- !logo -->
     <AppLogo />
-    <!-- !select -->
-    <label for="genre-search" class="none">Cerca per genere </label>
 
-    <select
-      v-model="store.searchGenre"
-      name="genre-search"
-      @change="$emit('selectSearch')"
-    >
-      <option value="">All</option>
-      <option v-for="search in store.genres" :value="search.id">
-        {{ search.name }}
-      </option>
-    </select>
     <form @submit.prevent="$emit('buttonSearch')" class="flex">
       <!-- !barra di ricerca -->
       <label for="search" class="none">Cerca qui i tuoi film </label>
@@ -57,6 +46,8 @@ header {
   padding: 1.875rem 2.5rem;
   background-color: $black;
   box-shadow: 0px 10px 13px -7px black;
+  height: 15vh;
+
   form {
     flex-grow: 1;
     justify-content: flex-end;
